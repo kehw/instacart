@@ -27,11 +27,11 @@ products_df = pd.read_csv("../input/products.csv")
 aisles_df = pd.read_csv("../input/aisles.csv")
 departments_df = pd.read_csv("../input/departments.csv")
 
-orders_df.head()
+print orders_df.head()
 
-order_products_prior_df.head()
+print order_products_prior_df.head()
 
-order_products_train_df.head()
+print order_products_train_df.head()
 
 
 print 'press any key to continue'
@@ -54,7 +54,7 @@ def get_unique_count(x):
     return len(np.unique(x))
 
 cnt_srs = orders_df.groupby("eval_set")["user_id"].aggregate(get_unique_count)
-cnt_srs
+print cnt_srs
 
 print 'press any key to continue'
 raw_input('')
@@ -122,11 +122,11 @@ raw_input('')
 
 print 'percentage of re-orders in prior set:'
 # percentage of re-orders in prior set #
-order_products_prior_df.reordered.sum() / order_products_prior_df.shape[0]
+print order_products_prior_df.reordered.sum() / order_products_prior_df.shape[0]
 
 print 'percentage of re-orders in train set:'
 # percentage of re-orders in train set #
-order_products_train_df.reordered.sum() / order_products_train_df.shape[0]
+print order_products_train_df.reordered.sum() / order_products_train_df.shape[0]
 
 
 grouped_df = order_products_prior_df.groupby("order_id")["reordered"].aggregate("sum").reset_index()
@@ -150,9 +150,9 @@ plt.show()
 print 'press any key to continue'
 raw_input('')
 
-products_df.head()
-aisles_df.head()
-departments_df.head()
+print products_df.head()
+print aisles_df.head()
+print departments_df.head()
 
 
 print 'press any key to continue'
@@ -161,14 +161,14 @@ raw_input('')
 order_products_prior_df = pd.merge(order_products_prior_df, products_df, on='product_id', how='left')
 order_products_prior_df = pd.merge(order_products_prior_df, aisles_df, on='aisle_id', how='left')
 order_products_prior_df = pd.merge(order_products_prior_df, departments_df, on='department_id', how='left')
-order_products_prior_df.head()
+print order_products_prior_df.head()
 
 print 'press any key to continue'
 raw_input('')
 
 cnt_srs = order_products_prior_df['product_name'].value_counts().reset_index().head(20)
 cnt_srs.columns = ['product_name', 'frequency_count']
-cnt_srs
+print cnt_srs
 
 print 'press any key to continue'
 raw_input('')
