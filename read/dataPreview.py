@@ -9,6 +9,7 @@ color = sns.color_palette()
 
 #matplotlib inline
 
+
 pd.options.mode.chained_assignment = None  # default='warn'
 
 print 'press any key to continue'
