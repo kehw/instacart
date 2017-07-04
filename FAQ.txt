@@ -1,0 +1,5 @@
+1. RuntimeError: Python is not installed as a framework 
+A: assume you have installed the pip matplotlib, there is a directory in you root called ~/.matplotlib.
+Create a file ~/.matplotlib/matplotlibrc there and add the following code: backend: TkAgg
+
+
