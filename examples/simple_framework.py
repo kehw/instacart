@@ -61,7 +61,7 @@ if __name__=='__main__':
     #sess = tf.InteractiveSession()
     #print(sess.run(feature_cols))
 
-    m = instacart.model.build_estimator(model_dir='./', "linearClassifier")
+    m = ins.model.build_estimator(model_dir='./', model_type="linearClassifier")
     m.fit(input_fn=lambda: input_fn(order_products_prior_df),steps=200)
     results = m.evaluate(input_fn=lambda: input_fn(order_products_train_df),steps=1)
 
