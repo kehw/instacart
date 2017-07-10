@@ -17,7 +17,7 @@ def loadData(prior_data, train_data, aisles, departments, orders, products):
 
     order_products_prior_df = pd.merge(order_products_prior_df, products_df, on='product_id', how='left')
     order_products_prior_df = pd.merge(order_products_prior_df, orders_df, on='order_id', how='left')
-    order_products_prior_df = pd.merge(order_products_prior_df, aisles_df, on='aisle_id',how='left')
+    order_products_prior_df = pd.merge(order_products_prior_df, aisles_df, on='aisle_id', how='left')
     order_products_prior_df = pd.merge(order_products_prior_df, departments_df, on='department_id',how='left')
 
     order_products_train_df = pd.merge(order_products_train_df, products_df, on='product_id',how='left')
@@ -29,4 +29,4 @@ def loadData(prior_data, train_data, aisles, departments, orders, products):
 
     order_eval_df = orders_df[orders_df['eval_set'].str.contains('test')]
 
-    return order_products_prior_df, order_products_train_df, order_train_df, order_eval_df 
+    return order_products_prior_df, order_products_train_df, order_train_df, order_eval_df
